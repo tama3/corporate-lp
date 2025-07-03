@@ -1,0 +1,10 @@
+/* レスポンシブ対応 */
+@media(max-width: 768px){
+    header nav { margin-top: 15px; }
+    header nav li { margin: 0 10px; }
+    #hero h2 { font-size: 2.8rem; }
+    #hero p { font-size: 1.1rem; }
+    .section-title { font-size: 2.2rem; }
+    .price-card.popular { transform: scale(1); }
+    .features-grid, .pricing-grid { grid-template-columns: 1fr; }
+}

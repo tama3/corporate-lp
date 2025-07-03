@@ -1,0 +1,154 @@
+/* ヘッダー */
+header {
+    background: var(--white-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1.5rem 0;
+    position: sticky; /* スクロール時に追従 */
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: all 0.4s ease-in-out; /* 全てのプロパティにトランジションを設定 */
+
+    &.scrolled {
+        padding: 0.8rem 0;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px); /* すりガラス効果 */
+
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        margin: 0;
+        color: var(--primary-color);
+        font-weight: 700;
+        transition: font-size 0.4s ease-in-out;
+    }
+
+    .menu-toggle {
+        display: none; /* デフォルトでは非表示 */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001; /* ナビゲーションより手前に */
+
+        .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        &.is-active {
+            .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(0px, 7.5px);
+            }
+            .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .bar:nth-child(3) {
+                transform: rotate(45deg) translate(0px, -9px);
+            }
+        }
+    }
+
+    nav {
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin-left: 30px;
+        }
+
+        a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--primary-color);
+                transition: width 0.4s ease;
+            }
+
+            &:hover {
+                color: var(--primary-color);
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--white-color);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            display: none; /* デフォルトでは非表示 */
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+
+            &.is-active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            a {
+                display: block;
+                padding: 10px 0;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: flex; /* モバイルで表示 */
+        }
+
+        nav {
+            display: none; /* モバイルで非表示 */
+        }
+    }
+}

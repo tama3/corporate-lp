@@ -1,0 +1,33 @@
+/* 特徴セクション */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    perspective: 1000px; /* 3Dエフェクト用 */
+}
+
+.feature-card {
+    background: var(--white-color);
+    padding: 40px 30px 50px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+
+    &:hover {
+        box-shadow: var(--shadow);
+        transform: rotateX(10deg) rotateY(-10deg) scale(1.05); /* 3Dチルトエフェクト */
+    }
+
+    .icon {
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+}
