@@ -46,8 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 特徴カードの3Dチルトエフェクト
     const featureCards = document.querySelectorAll('.feature-card');
+    
 
-    featureCards.forEach(card => {
+    featureCards.forEach((card, index) => { // indexを追加
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left; 
