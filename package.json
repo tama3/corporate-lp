@@ -12,6 +12,7 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "sass-embedded": "^1.89.2",
     "vite": "^7.0.1"
   }
 }
