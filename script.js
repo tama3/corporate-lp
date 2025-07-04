@@ -35,7 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+                const delay = parseFloat(entry.target.dataset.animationDelay || 0);
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, delay * 1000); // Convert seconds to milliseconds
             }
         });
     }, { threshold: 0.1 });
