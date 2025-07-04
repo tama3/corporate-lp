@@ -42,3 +42,7 @@ npm run build
 ```
 
 This will generate optimized static assets in the `dist/` directory.
+
+## Demo
+
+View the live demo here: [https://corporate-lp-mauve.vercel.app/](https://corporate-lp-mauve.vercel.app/)
